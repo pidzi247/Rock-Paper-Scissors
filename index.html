@@ -9,13 +9,23 @@
 <body>
   <script>
     function getComputerChoice() {
+      //Options computer can "pick"
       let options = ["rock", "paper", "scissors"];
+
+      //Randomly generate and index from 0 to 2 
       let randNum = Math.floor(Math.random()*3);
+
+      //Return a random element from options array 
+      //utilizing random number from randNum 
       return options[randNum];
     }
 
     function playRound(playerSelection, computerSelection) {
+      //Ensure case insensitive input from player
       let playerSelectionLower = playerSelection.toLowerCase();
+
+      //Main logic to get the message who wins the round
+      //and return value to later determine who increments the score
       if(playerSelection === 'rock') {
         if(computerSelection === 'rock') {
           console.log("It's a tie!. Both picked a rock.");
@@ -53,17 +63,25 @@
     }
 
     function game() {
+      //Initialized variables to hold count of round wins for player and computer
       let playerScore = 0;
       let computerScore = 0;
+
+      //Round count variable to help get out of loop in case someone gets 3 wins sooner
+      //than in 5 rounds
       let rounds = 0;
 
       for (let i = 0; i < 5; i++) {
+        //Break the entire loop once someone gets to 3 round wins
         if(playerScore === 3 || computerScore === 3) {
           break;
         }
-
+        
+        //Get the player input and save computer pick
         playerSelection = prompt("Pick one of three options: rock, paper and scissors");
         computerSelection = getComputerChoice();
+
+        //Main logic to determine whos score to increment
         result = playRound(playerSelection, computerSelection);
 
         if(result === 0) {
@@ -76,6 +94,8 @@
         console.log(`Current score: Player ${playerScore} : ${computerScore} Computer`);
         rounds++
       }
+
+        //Final message to get to know who won the game
         if(playerScore === computerScore) {
           console.log(`After ${rounds} epic rounds...It's a TIE!!!`);
         } else if(playerScore > computerScore) {
