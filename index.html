@@ -12,8 +12,11 @@
     <button class="btn">paper</button>
     <button class="btn">scissors</button>
   </div>
+  <p class="para"></p>
   <script>
-
+    const btns = document.querySelectorAll('.btn');
+    const box = document.querySelector(".para");
+    
     function getComputerChoice() {
       //Options computer can "pick"
       let options = ["rock", "paper", "scissors"];
@@ -26,50 +29,46 @@
       return options[randNum];
     }
 
-
-    const btns = document.querySelectorAll('.btn');
-    
     btns.forEach(btn => {
       btn.addEventListener('click', () => playRound(btn.textContent, getComputerChoice()));
     });
 
-    function playRound(playerSelection, computerSelection) {
-      //Ensure case insensitive input from player
-     
-
+    function playRound(playerSelection, computerSelection) {    
+      
       //Main logic to get the message who wins the round
       //and return value to later determine who increments the score
       if(playerSelection === 'rock') {
         if(computerSelection === 'rock') {
-          console.log("It's a tie!. Both picked a rock.");
+          box.textContent = "It's a tie!. Both picked a rock.";
           return 0;
         } else if(computerSelection === 'paper') {
-          console.log("You lose! Computer's paper beats your rock.");
+          box.textContent = "You lose! Computer's paper beats your rock.";
           return 1;
         } else {
-          console.log("You win! Your rock beats computer's scissors.");
+          box.textContent = "You win! Your rock beats computer's scissors.";
           return 2;
         }
+
       } else if(playerSelection === 'paper') {
         if(computerSelection === 'paper') {
-          console.log("It's a tie!. Both picked a paper.");
+          box.textContent = "It's a tie!. Both picked a paper.";
           return 0;
         } else if(computerSelection === 'scissors') {
-          console.log("You lose! Computer's scissors beats your paper.");
+          box.textContent = "You lose! Computer's scissors beats your paper.";
           return 1;
         } else {
-          console.log("You win! Your paper beats computer's rock.");
+          box.textContent = "You win! Your paper beats computer's rock.";
           return 2;
         }
       } else {
         if(computerSelection === 'scissors') {
-          console.log("It's a tie!. Both picked a scissors.");
+          box.textContent = "It's a tie!. Both picked a scissors.";
           return 0;
         } else if(computerSelection === 'rock') {
-          console.log("You lose! Computer's rock beats your scissors.");
+          box.textContent = "You lose! Computer's rock beats your scissors.";
           return 1;
         } else {
-          console.log("You win! Your scissors beats computer's paper.");
+          box.textContent = "You win! Your scissors beats computer's paper.";
           return 2;
         }
       }
