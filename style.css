@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgba(255,211,179,0.4);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.buttons {
+  border-radius: 50px;
+  width: 400px;
+  padding: 30px;
+  background: rgb(16,98,119);
+  background: linear-gradient(180deg, rgba(16,98,119,0.5) 35%, rgba(25,8,140,0.5) 84%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border: 2px solid black;
+}
+
+.btn {
+  padding: 50px;
+  border-radius: 50%;
+  border: 18px solid black;
+  box-shadow: 0 10px 2px grey ;
+  transition: all 0.3s ease;
+  
+}
+
+button span {
+  display: none;
+}
+
+.red {
+  border-color: rgba(218,48,76,0.75);
+}
+
+.red:active,
+.green:active,
+.brown:active {
+  border-color: black;
+  box-shadow: none;
+  transform: translateY(10px);
+}
+
+.green {
+  border-color: rgba(70,164,108,0.75);
+}
+
+.brown {
+  border-color: rgba(224,109,16,0.75)
+}
+
+.para {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  border-radius: 15px;
+  width: 430px;
+  padding: 10px 20px;
+  border: 2px solid black;
+  background: rgb(16,98,119);
+  background: linear-gradient(180deg, rgba(16,98,119,0.5) 35%, rgba(25,8,140,0.5) 84%);
+}
