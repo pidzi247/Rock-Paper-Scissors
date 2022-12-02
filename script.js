@@ -1,16 +1,30 @@
 const btns = document.querySelectorAll(".btn");
 const box = document.querySelector(".para");
+const test = document.getElementById("dummy");
 
 let playerScore = 0;
 let computerScore = 0;
 let rounds = 0;
+let timesRun = 0;
 
-btns.forEach(btn => {
+let mainEvent = btns.forEach(btn => {
   btn.addEventListener('click', () => {
     playRound(btn.textContent, getComputerChoice());
     reset();
+    setTimeout(function() {
+      btn.style.pointerEvents = "auto";
+      btn.removeAttribute('disabled');
+    }, 1100)
+  });
+  btn.addEventListener('click', () => {
+    let myVar = setInterval(random, 70);
+    setTimeout(function() {
+      clearInterval(myVar);
+    }, 1000);
+   
   });
 });
+
 
 function getComputerChoice() {
   //Options computer can "pick"
@@ -72,3 +86,17 @@ function reset() {
   }
 }
 
+function random() {
+  btns.forEach(btn => {
+    btn.disabled = true;
+    btn.style.pointerEvents = "none"
+  });
+  let options = ["rock", "paper", "scissors"];
+  
+  //Randomly generate an index from 0 to 2 
+  let randNum = Math.floor(Math.random()*3);
+  
+  //Return a random element from options array 
+  //utilizing random number from randNum 
+  test.textContent = options[randNum];
+}
