@@ -16,7 +16,7 @@ body {
 
 .buttons {
   border-radius: 50px;
-  width: 400px;
+  width: 600px;
   padding: 30px;
   background: rgb(16,98,119);
   background: linear-gradient(180deg, rgba(16,98,119,0.5) 35%, rgba(25,8,140,0.5) 84%);
@@ -29,11 +29,17 @@ body {
 }
 
 .btn {
+  width: 250px;
+  height: 250px;
   padding: 50px;
   border-radius: 50%;
   border: 18px solid black;
   box-shadow: 0 10px 2px grey ;
   transition: all 0.3s ease;
+}
+
+.btn:hover {
+  cursor: pointer;
 }
 
 button span {

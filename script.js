@@ -1,6 +1,6 @@
 const btns = document.querySelectorAll(".btn");
 const box = document.querySelector(".para");
-const test = document.getElementById("dummy");
+const shuffle = document.getElementById("pc-choice");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -11,17 +11,22 @@ let mainEvent = btns.forEach(btn => {
   btn.addEventListener('click', () => {
     playRound(btn.textContent, getComputerChoice());
     reset();
+    btns.forEach(btn => {
+      btn.disabled = true;
+      btn.style.pointerEvents = "none";
+    });
     setTimeout(function() {
-      btn.style.pointerEvents = "auto";
-      btn.removeAttribute('disabled');
+      btns.forEach(btn => {
+        btn.style.pointerEvents = "auto";
+        btn.removeAttribute('disabled');
+      });
     }, 1100)
   });
   btn.addEventListener('click', () => {
-    let myVar = setInterval(random, 70);
+    let myVar = setInterval(getComputerChoice, 70);
     setTimeout(function() {
       clearInterval(myVar);
     }, 1000);
-   
   });
 });
 
@@ -35,6 +40,7 @@ function getComputerChoice() {
   
   //Return a random element from options array 
   //utilizing random number from randNum 
+  shuffle.textContent = options[randNum];
   return options[randNum];
 }
 
@@ -84,19 +90,4 @@ function reset() {
     document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
     document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
   }
-}
-
-function random() {
-  btns.forEach(btn => {
-    btn.disabled = true;
-    btn.style.pointerEvents = "none"
-  });
-  let options = ["rock", "paper", "scissors"];
-  
-  //Randomly generate an index from 0 to 2 
-  let randNum = Math.floor(Math.random()*3);
-  
-  //Return a random element from options array 
-  //utilizing random number from randNum 
-  test.textContent = options[randNum];
 }
