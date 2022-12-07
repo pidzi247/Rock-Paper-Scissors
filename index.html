@@ -10,20 +10,25 @@
   <title>Rock-Paper-Scissors</title>
 </head>
 <body>
-  <div class="result-board">
-    <h1>SCORE</h1>
-    <p id="pc-choice"></p>
-    <h3 id="round">Round: 0</h3>
-    <div class="player-names">
-      <p id="score-player">Player: 0</p>
-      <p id="score-pc">Computer: 0</p>
+  <div class="game-board">
+    <div class="computer-side">
+      <h1>SCORE</h1>
+      <p id="pc-choice"></p>
+      <h3 id="round">Round: 0</h3>
+      <div class="player-names">
+        <p id="score-player">Player: 0</p>
+        <p id="score-pc">Computer: 0</p>
+      </div>
+    </div>
+    <hr>
+    <div class="player-side">
+      <button class="fa fa-hand-paper-o fa-5x btn red" aria-hidden="true"></button>
+      <button class="fa fa-hand-rock-o fa-5x btn green" aria-hidden="true"></button>
+      <button class="fa fa-hand-scissors-o fa-5x btn brown" aria-hidden="true"></button>
     </div>
   </div>
-  <div class="buttons">
-    <button class="fa fa-hand-paper-o fa-2x btn red" aria-hidden="true">paper</button>
-    <button class="fa fa-hand-rock-o fa-2x btn green" aria-hidden="true">rock</button>
-    <button class="fa fa-hand-scissors-o fa-2x btn brown" aria-hidden="true">scissors</button>
+  <div class="log">
+
   </div>
-  <p class="para"></p>
 </body>
 </html>

@@ -1,3 +1,4 @@
+/*
 * {
   margin: 0;
   padding: 0;
@@ -76,4 +77,49 @@ button span {
   border: 2px solid black;
   background: rgb(16,98,119);
   background: linear-gradient(180deg, rgba(16,98,119,0.5) 35%, rgba(25,8,140,0.5) 84%);
+}
+*/
+
+* {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  background: rgb(16,74,119);
+  background: radial-gradient(circle, rgba(16,74,119,1) 35%, rgba(23,7,134,1) 84%);
+}
+
+hr {
+  margin: 10px 0;
+  opacity: 0.4;
+  border: 10px solid white;
+  box-shadow: -5px 0 5px 4px white, 5px 0 4px 4px white;
+}
+
+.game-board {
+  height: 100%;
+  width: 100%;
+}
+
+.log {
+  z-index: 1;
+}
+
+.player-side {
+  height: 45%;
+  font-size: 26px;
+}
+
+.computer-side {
+  width: 80%;
+  height: 45%;
+}
+
+.fa {
+  background: none;
+  border: none;
 }
