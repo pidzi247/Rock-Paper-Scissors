@@ -79,7 +79,6 @@ button span {
   background: linear-gradient(180deg, rgba(16,98,119,0.5) 35%, rgba(25,8,140,0.5) 84%);
 }
 */
-
 * {
   color: white;
   margin: 0;
@@ -105,7 +104,8 @@ hr {
   width: 100%;
 }
 
-.log {
+#log {
+  display: none;
   z-index: 1;
 }
 

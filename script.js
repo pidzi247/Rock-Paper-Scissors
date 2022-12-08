@@ -1,6 +1,7 @@
 const btns = document.querySelectorAll(".btn");
 const box = document.querySelector(".para");
 const shuffle = document.getElementById("pc-choice");
+const hud = document.getElementById("log");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -21,6 +22,8 @@ let mainEvent = btns.forEach(btn => {
         btn.removeAttribute('disabled');
       });
     }, 1100)
+    hud.style.setProperty("display", "block");
+
   });
   btn.addEventListener('click', () => {
     let myVar = setInterval(getComputerChoice, 70);
@@ -49,7 +52,6 @@ function playRound(playerSelection, computerSelection) {
   //and return value to later determine who increments the score
   if (playerSelection === computerSelection) {
     rounds++;
-    box.textContent = `It's a tie!. Both picked a ${playerSelection}.`;
     document.getElementById("round").innerHTML = "Round:  " + rounds;
     document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
     document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
@@ -59,12 +61,10 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === 'scissors' && computerSelection === 'rock') ) {
       rounds++;
       computerScore++;
-      box.textContent = `You lose! Computer's ${computerSelection} beats your ${playerSelection}.`;
       document.getElementById("round").innerHTML = "Round:  " + rounds;
       document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
       document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
   } else {
-      box.textContent = `You win! Your ${playerSelection} beats computer's ${computerSelection}.`;
       rounds++;
       playerScore++;
       document.getElementById("round").innerHTML = "Round:  " + rounds;
@@ -77,11 +77,8 @@ function reset() {
   //Final message to get to know who won the game
   if(rounds === 10) {
     if(playerScore === computerScore) {
-      box.textContent = `After ${rounds} epic rounds...It's a TIE!!! \n ${playerScore} : ${computerScore}`;
     } else if(playerScore > computerScore) {
-      box.textContent = `After ${rounds} epic rounds...Player WINS!!! \n ${playerScore} : ${computerScore}`;
     } else {
-      box.textContent = `After ${rounds} epic rounds...Computer WINS!!! \n ${computerScore} : ${playerScore}`;
     }
     rounds = 0;
     playerScore = 0;
