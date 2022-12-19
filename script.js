@@ -7,9 +7,14 @@ let playerScore = 0;
 let computerScore = 0;
 let rounds = 0;
 let timesRun = 0;
+let playerCurrentChoice = "";
+let computerCurrentChoice = "";
+
 
 let mainEvent = btns.forEach(btn => {
   btn.addEventListener('click', () => {
+    hud.style.setProperty("display", "block");
+    playerCurrentChoice = btn.textContent;
     playRound(btn.textContent, getComputerChoice());
     reset();
     btns.forEach(btn => {
@@ -17,12 +22,13 @@ let mainEvent = btns.forEach(btn => {
       btn.style.pointerEvents = "none";
     });
     setTimeout(function() {
+      hud.style.setProperty("display", "none");
       btns.forEach(btn => {
         btn.style.pointerEvents = "auto";
         btn.removeAttribute('disabled');
       });
     }, 1100)
-    hud.style.setProperty("display", "block");
+    
 
   });
   btn.addEventListener('click', () => {
@@ -44,6 +50,7 @@ function getComputerChoice() {
   //Return a random element from options array 
   //utilizing random number from randNum 
   shuffle.textContent = options[randNum];
+  computerCurrentChoice = options[randNum];
   return options[randNum];
 }
 
@@ -71,6 +78,10 @@ function playRound(playerSelection, computerSelection) {
       document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
       document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
     }
+  let roundLog = document.createElement("div"); 
+  let logMessage = `player => ${playerCurrentChoice.toUpperCase()} vs ${computerCurrentChoice.toUpperCase()} <= computer || ${playerScore} : ${computerScore}`;  
+  roundLog.textContent = logMessage;
+  hud.appendChild(roundLog);
 }
 
 function reset() {

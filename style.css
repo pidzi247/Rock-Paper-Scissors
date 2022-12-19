@@ -86,6 +86,7 @@ button span {
 }
 
 body {
+  position: relative;
   display: flex;
   height: 100vh;
   background: rgb(16,74,119);
@@ -107,6 +108,9 @@ hr {
 #log {
   display: none;
   z-index: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .player-side {
