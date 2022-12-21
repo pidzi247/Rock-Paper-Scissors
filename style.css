@@ -106,11 +106,13 @@ hr {
 }
 
 #log {
-  display: none;
   z-index: 1;
   position: absolute;
   right: 0;
   top: 0;
+  width: 40%;
+  display: none;
+  text-align: right;
 }
 
 .player-side {
@@ -126,4 +128,10 @@ hr {
 .fa {
   background: none;
   border: none;
+}
+
+/*@media (max-width: 480px) {
+  #log {
+    visibility: hidden;
+  }
 }

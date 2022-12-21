@@ -22,14 +22,14 @@ let mainEvent = btns.forEach(btn => {
       btn.style.pointerEvents = "none";
     });
     setTimeout(function() {
-      hud.style.setProperty("display", "none");
       btns.forEach(btn => {
         btn.style.pointerEvents = "auto";
         btn.removeAttribute('disabled');
       });
     }, 1100)
-    
-
+    setTimeout(function() {
+      hud.style.setProperty("display", "none");
+    }, 3100)
   });
   btn.addEventListener('click', () => {
     let myVar = setInterval(getComputerChoice, 70);
