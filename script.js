@@ -81,7 +81,7 @@ function playRound(playerSelection, computerSelection) {
   let roundLog = document.createElement("div"); 
   let logMessage = `player => ${playerCurrentChoice.toUpperCase()} vs ${computerCurrentChoice.toUpperCase()} <= computer || ${playerScore} : ${computerScore}`;  
   roundLog.textContent = logMessage;
-  hud.appendChild(roundLog);
+  hud.insertBefore(roundLog, hud.firstChild);
 }
 
 function reset() {
@@ -97,5 +97,6 @@ function reset() {
     document.getElementById("round").innerHTML = "Round:  " + rounds;
     document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
     document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
+    hud.replaceChildren();
   }
 }
