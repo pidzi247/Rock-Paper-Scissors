@@ -124,14 +124,30 @@ body {
 
 .player-side {
   border-top: 5px rgba(128,128,128,0.5) solid;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+}
 
+.player-side::after {
+  content: "PLAYER";
+  position: absolute;
+  bottom: 20%;
+}
+
+.computer-side::after {
+  content: "COMPUTER";
+  position: absolute;
+  top: 22%;
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, -1);
 }
 
 .computer-side,
 .player-side {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   width: 100%;
   height: 20%;
   border-radius: 50%;
