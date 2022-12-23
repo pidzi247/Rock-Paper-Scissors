@@ -12,10 +12,14 @@
 <body>
   <div class="game-board">
     <div class="computer-side">
+      <button class="fa fa-hand-paper-o fa-2x btn" aria-hidden="true"><span>paper</span></button>
+      <button class="fa fa-hand-rock-o fa-2x btn" aria-hidden="true"><span>rock</span></button>
+      <button class="fa fa-hand-scissors-o fa-2x btn" aria-hidden="true"><span>scissors</span></button>
     </div>
     <div class="result-side">
       <h1>SCORE</h1>
       <p id="pc-choice"></p>
+      <p id="player-choice"></p>
       <h3 id="round">Round: 0</h3>
       <div class="player-names">
         <p id="score-player">Player: 0</p>
@@ -23,9 +27,9 @@
       </div>
     </div>
     <div class="player-side">
-      <button class="fa fa-hand-paper-o fa-2x btn red" aria-hidden="true"><span>paper</span></button>
-      <button class="fa fa-hand-rock-o fa-2x btn green" aria-hidden="true"><span>rock</span></button>
-      <button class="fa fa-hand-scissors-o fa-2x btn brown" aria-hidden="true"><span>scissors</span></button>
+      <button class="fa fa-hand-paper-o fa-2x btn" aria-hidden="true"><span>paper</span></button>
+      <button class="fa fa-hand-rock-o fa-2x btn" aria-hidden="true"><span>rock</span></button>
+      <button class="fa fa-hand-scissors-o fa-2x btn" aria-hidden="true"><span>scissors</span></button>
     </div>
   </div>
   <div id="log">

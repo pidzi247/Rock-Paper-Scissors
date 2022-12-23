@@ -1,6 +1,7 @@
 const btns = document.querySelectorAll(".btn");
 const box = document.querySelector(".para");
-const shuffle = document.getElementById("pc-choice");
+const shuffleCompChoice = document.getElementById("pc-choice");
+const playerFinalChoice = document.getElementById("player-choice");
 const hud = document.getElementById("log");
 
 let playerScore = 0;
@@ -15,6 +16,7 @@ let mainEvent = btns.forEach(btn => {
   btn.addEventListener('click', () => {
     hud.style.setProperty("display", "block");
     playerCurrentChoice = btn.textContent;
+    playerFinalChoice.textContent = playerChoice(btn.textContent);
     playRound(btn.textContent, getComputerChoice());
     reset();
     btns.forEach(btn => {
@@ -49,7 +51,7 @@ function getComputerChoice() {
   
   //Return a random element from options array 
   //utilizing random number from randNum 
-  shuffle.textContent = options[randNum];
+  shuffleCompChoice.textContent = options[randNum];
   computerCurrentChoice = options[randNum];
   return options[randNum];
 }
@@ -98,5 +100,19 @@ function reset() {
     document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
     document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
     hud.replaceChildren();
+  }
+}
+
+function playerChoice(choice) {
+  playerFinalChoice.classList.add("fa", "fa-3x");
+  if(choice === "scissors") {
+    playerFinalChoice.classList.remove("fa-hand-paper-o", "fa-hand-rock-o");
+    playerFinalChoice.classList.add('fa-hand-scissors-o');
+  } else if( choice === "paper") {
+    playerFinalChoice.classList.remove("fa-hand-scissors-o", "fa-hand-rock-o");
+    playerFinalChoice.classList.add('fa-hand-paper-o');
+  } else {
+    playerFinalChoice.classList.remove("fa-hand-paper-o", "fa-hand-scissors-o");
+    playerFinalChoice.classList.add('fa-hand-rock-o');
   }
 }
