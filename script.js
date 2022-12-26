@@ -10,6 +10,7 @@ let rounds = 0;
 let timesRun = 0;
 let playerCurrentChoice = "";
 let computerCurrentChoice = "";
+  
 
 
 let mainEvent = btns.forEach(btn => {
@@ -24,6 +25,9 @@ let mainEvent = btns.forEach(btn => {
       btn.style.pointerEvents = "none";
     });
     setTimeout(function() {
+
+      shuffleCompChoice.classList.remove("hiA");
+      playerFinalChoice.classList.remove("hiA");
       btns.forEach(btn => {
         btn.style.pointerEvents = "auto";
         btn.removeAttribute('disabled');
@@ -33,16 +37,11 @@ let mainEvent = btns.forEach(btn => {
       hud.style.setProperty("display", "none");
     }, 3100)
   });
-  btn.addEventListener('click', () => {
-    let myVar = setInterval(getComputerChoice, 70);
-    setTimeout(function() {
-      clearInterval(myVar);
-    }, 1000);
-  });
 });
 
-
 function getComputerChoice() {
+  shuffleCompChoice.classList.add("fa", "fa-3x");
+
   //Options computer can "pick"
   let options = ["rock", "paper", "scissors"];
   
@@ -51,7 +50,16 @@ function getComputerChoice() {
   
   //Return a random element from options array 
   //utilizing random number from randNum 
-  shuffleCompChoice.textContent = options[randNum];
+  if(randNum === 2) {
+    shuffleCompChoice.classList.remove("fa-hand-paper-o", "fa-hand-rock-o");
+    shuffleCompChoice.classList.add('fa-hand-scissors-o');
+  } else if( randNum === 1) {
+    shuffleCompChoice.classList.remove("fa-hand-scissors-o", "fa-hand-rock-o");
+    shuffleCompChoice.classList.add('fa-hand-paper-o');
+  } else {
+    shuffleCompChoice.classList.remove("fa-hand-paper-o", "fa-hand-scissors-o");
+    shuffleCompChoice.classList.add('fa-hand-rock-o');
+  }
   computerCurrentChoice = options[randNum];
   return options[randNum];
 }
@@ -73,12 +81,14 @@ function playRound(playerSelection, computerSelection) {
       document.getElementById("round").innerHTML = "Round:  " + rounds;
       document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
       document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
+      shuffleCompChoice.classList.add('hiA');
   } else {
       rounds++;
       playerScore++;
       document.getElementById("round").innerHTML = "Round:  " + rounds;
       document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
       document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
+      playerFinalChoice.classList.add("hiA");
     }
   let roundLog = document.createElement("div"); 
   let logMessage = `player => ${playerCurrentChoice.toUpperCase()} vs ${computerCurrentChoice.toUpperCase()} <= computer || ${playerScore} : ${computerScore}`;  
