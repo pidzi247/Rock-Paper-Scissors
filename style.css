@@ -106,15 +106,14 @@ span {
   flex-basis: 0;
 }
 
-.scoreline h3 {
+.scoreline {
   text-align: center;
+}
+
+.scoreline div {
   margin-bottom: 10px;
 }
 
-.scoreline span {
-  display: inline;
-  float: right;
-}
 
 #round {
   align-self: stretch;
@@ -130,6 +129,10 @@ span {
 #round p {
   text-align: center;
   font-size: 1.5rem;
+}
+
+.round-winner {
+  text-align: center;
 }
 
 

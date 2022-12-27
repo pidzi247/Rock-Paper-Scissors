@@ -73,6 +73,7 @@ function playRound(playerSelection, computerSelection) {
     document.getElementById("round-count").innerHTML = rounds;
     document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
     document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
+    document.querySelector(".round-winner").innerHTML = "It's a tie!";
     playerFinalChoice.classList.add("hiA");
     shuffleCompChoice.classList.add('hiA');
   } else if (
@@ -84,6 +85,7 @@ function playRound(playerSelection, computerSelection) {
       document.getElementById("round-count").innerHTML = rounds;
       document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
       document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
+      document.querySelector(".round-winner").innerHTML = "Computer" + "<br>" + "wins!";
       shuffleCompChoice.classList.add('hiA');
   } else {
       rounds++;
@@ -91,6 +93,7 @@ function playRound(playerSelection, computerSelection) {
       document.getElementById("round-count").innerHTML = rounds;
       document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
       document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
+      document.querySelector(".round-winner").innerHTML = "Player" + "<br>" + "wins!";
       playerFinalChoice.classList.add("hiA");
     }
   let roundLog = document.createElement("div"); 
@@ -102,14 +105,9 @@ function playRound(playerSelection, computerSelection) {
 function reset() {
   //Final message to get to know who won the game
   if(rounds === 10) {
-    if(playerScore === computerScore) {
-    } else if(playerScore > computerScore) {
-    } else {
-    }
     rounds = 0;
     playerScore = 0;
     computerScore = 0;
-    document.getElementById("round").innerHTML = "Round:  " + rounds;
     document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
     document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
     hud.replaceChildren();
