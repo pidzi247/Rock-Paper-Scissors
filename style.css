@@ -34,6 +34,7 @@ body {
 
 .computer-side {
   border-bottom: 5px rgba(128,128,128,0.5) solid;
+  color: grey;
 }
 
 .result-side {
@@ -53,6 +54,10 @@ body {
   position: absolute;
   font-weight: 900 ;
   bottom: 20%;
+}
+
+.computer-side button {
+  color: grey;
 }
 
 .computer-side::after {
@@ -92,6 +97,42 @@ span {
   -ms-transform: scale(-1, 1);
   transform: scale(-1, -1);
 }
+
+#scoreboard {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-basis: 0;
+}
+
+.scoreline h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.scoreline span {
+  display: inline;
+  float: right;
+}
+
+#round {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#round h3 {
+  margin-bottom: 10px;
+}
+
+#round p {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+
 
 
 @media (max-width: 480px) {

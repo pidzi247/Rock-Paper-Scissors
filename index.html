@@ -12,20 +12,26 @@
 <body>
   <div class="game-board">
     <div class="computer-side">
-      <button class="fa fa-hand-paper-o fa-2x btn" aria-hidden="true"><span>paper</span></button>
-      <button class="fa fa-hand-rock-o fa-2x btn" aria-hidden="true"><span>rock</span></button>
-      <button class="fa fa-hand-scissors-o fa-2x btn" aria-hidden="true"><span>scissors</span></button>
+      <button class="fa fa-hand-paper-o fa-2x " aria-hidden="true"><span>paper</span></button>
+      <button class="fa fa-hand-rock-o fa-2x " aria-hidden="true"><span>rock</span></button>
+      <button class="fa fa-hand-scissors-o fa-2x " aria-hidden="true"><span>scissors</span></button>
     </div>
     <div class="result-side">
-      <h1>SCORE</h1>
       <p id="pc-choice"></p>
       <hr>
-      <p id="player-choice"></p>
-      <h3 id="round">Round: 0</h3>
-      <div class="player-names">
-        <p id="score-player">Player: 0</p>
-        <p id="score-pc">Computer: 0</p>
+      <div id="scoreboard">
+        <div id="round">
+          <h3>Round</h3>
+          <p id="round-count">0</p>
+        </div>
+        <div class="round-winner">Content</div>
+        <div class="scoreline">
+          <h3>Score</h3>
+          <p id="score-player">Player: <span>0</span></p>
+          <p id="score-pc">Computer: 0</p></div>
       </div>
+      <hr>
+      <p id="player-choice"></p>
     </div>
     <div class="player-side">
       <button class="fa fa-hand-paper-o fa-2x btn" aria-hidden="true"><span>paper</span></button>

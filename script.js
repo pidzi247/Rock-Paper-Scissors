@@ -41,6 +41,7 @@ let mainEvent = btns.forEach(btn => {
 
 function getComputerChoice() {
   shuffleCompChoice.classList.add("fa", "fa-3x");
+  shuffleCompChoice.style.color = "grey";
 
   //Options computer can "pick"
   let options = ["rock", "paper", "scissors"];
@@ -69,23 +70,25 @@ function playRound(playerSelection, computerSelection) {
   //and return value to later determine who increments the score
   if (playerSelection === computerSelection) {
     rounds++;
-    document.getElementById("round").innerHTML = "Round:  " + rounds;
+    document.getElementById("round-count").innerHTML = rounds;
     document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
     document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
+    playerFinalChoice.classList.add("hiA");
+    shuffleCompChoice.classList.add('hiA');
   } else if (
     (playerSelection === 'paper' && computerSelection === 'scissors') || 
     (playerSelection === 'rock'  && computerSelection === 'paper') ||
     (playerSelection === 'scissors' && computerSelection === 'rock') ) {
       rounds++;
       computerScore++;
-      document.getElementById("round").innerHTML = "Round:  " + rounds;
+      document.getElementById("round-count").innerHTML = rounds;
       document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
       document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
       shuffleCompChoice.classList.add('hiA');
   } else {
       rounds++;
       playerScore++;
-      document.getElementById("round").innerHTML = "Round:  " + rounds;
+      document.getElementById("round-count").innerHTML = rounds;
       document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
       document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
       playerFinalChoice.classList.add("hiA");
