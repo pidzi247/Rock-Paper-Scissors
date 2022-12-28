@@ -51,6 +51,12 @@ body {
 
 .player-side button {
   color: #48F03D;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.player-side button:hover {
+  transform: scale(1.5);
 }
 
 .player-side span {
@@ -146,9 +152,13 @@ span {
   #log {
     visibility: hidden;
   }
-  span {
+  span,
+  .player-side::after,
+  .computer-side::after {
     display: none;
   }
+
+
 }
 
 @keyframes example {

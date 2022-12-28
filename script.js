@@ -3,6 +3,7 @@ const box = document.querySelector(".para");
 const shuffleCompChoice = document.getElementById("pc-choice");
 const playerFinalChoice = document.getElementById("player-choice");
 const hud = document.getElementById("log");
+const choiceActive = document.querySelectorAll(".choice-name");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -20,11 +21,15 @@ let mainEvent = btns.forEach(btn => {
     playerFinalChoice.textContent = playerChoice(btn.textContent);
     playerFinalChoice.style.color = "#48F03D";
     playRound(btn.textContent, getComputerChoice());
+    choiceActive.forEach(inactive => {
+      inactive.style.color = "grey";
+    });
     reset();
     btns.forEach(btn => {
       btn.disabled = true;
       btn.style.pointerEvents = "none";
       btn.style.color = "grey";
+
     });
     setTimeout(function() {
       shuffleCompChoice.classList.remove("hiA");
@@ -33,6 +38,9 @@ let mainEvent = btns.forEach(btn => {
         btn.style.pointerEvents = "auto";
         btn.removeAttribute('disabled');
         btn.style.color = "#48F03D";
+        choiceActive.forEach(inactive => {
+          inactive.style.color = "#48F03D";
+        });
       });
     }, 2500)
     setTimeout(function() {
