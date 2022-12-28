@@ -34,7 +34,6 @@ body {
 
 .computer-side {
   border-bottom: 5px rgba(128,128,128,0.5) solid;
-  color: grey;
 }
 
 .result-side {
@@ -47,6 +46,15 @@ body {
 
 .player-side {
   border-top: 5px rgba(128,128,128,0.5) solid;
+  color: #48F03D;
+}
+
+.player-side button {
+  color: #48F03D;
+}
+
+.player-side span {
+  color: #48F03D;
 }
 
 .player-side::after {
@@ -54,10 +62,6 @@ body {
   position: absolute;
   font-weight: 900 ;
   bottom: 20%;
-}
-
-.computer-side button {
-  color: grey;
 }
 
 .computer-side::after {

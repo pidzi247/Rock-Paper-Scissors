@@ -18,31 +18,31 @@ let mainEvent = btns.forEach(btn => {
     hud.style.setProperty("display", "block");
     playerCurrentChoice = btn.textContent;
     playerFinalChoice.textContent = playerChoice(btn.textContent);
+    playerFinalChoice.style.color = "#48F03D";
     playRound(btn.textContent, getComputerChoice());
     reset();
     btns.forEach(btn => {
       btn.disabled = true;
       btn.style.pointerEvents = "none";
+      btn.style.color = "grey";
     });
     setTimeout(function() {
-
       shuffleCompChoice.classList.remove("hiA");
       playerFinalChoice.classList.remove("hiA");
       btns.forEach(btn => {
         btn.style.pointerEvents = "auto";
         btn.removeAttribute('disabled');
+        btn.style.color = "#48F03D";
       });
-    }, 1100)
+    }, 2500)
     setTimeout(function() {
       hud.style.setProperty("display", "none");
-    }, 3100)
+    }, 2500)
   });
 });
 
 function getComputerChoice() {
   shuffleCompChoice.classList.add("fa", "fa-3x");
-  shuffleCompChoice.style.color = "grey";
-
   //Options computer can "pick"
   let options = ["rock", "paper", "scissors"];
   
@@ -105,12 +105,27 @@ function playRound(playerSelection, computerSelection) {
 function reset() {
   //Final message to get to know who won the game
   if(rounds === 10) {
-    rounds = 0;
-    playerScore = 0;
-    computerScore = 0;
-    document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
-    document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
-    hud.replaceChildren();
+    document.getElementById("round").style.setProperty("display", "none");
+    document.querySelector(".scoreline").style.setProperty("display", "none");
+    if(playerScore > computerScore) {
+      document.querySelector(".round-winner").innerHTML = `After 10 epic rounds, Player wins with a score ${playerScore} to ${computerScore}!`;
+    } else if (playerScore < computerScore) {
+      document.querySelector(".round-winner").innerHTML = `After 10 epic rounds, Computer wins with a score  ${computerScore} to ${playerScore}!`
+    } else {
+      document.querySelector(".round-winner").innerHTML = `After 10 epic rounds...It's a tie! Score: ${playerScore} to ${computerScore}.`
+    }
+    setTimeout(function() {
+      document.getElementById("round").style.setProperty("display", "flex");
+      document.querySelector(".scoreline").style.setProperty("display", "block");
+      rounds = 0;
+      playerScore = 0;
+      computerScore = 0;
+      document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
+      document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
+      document.getElementById("round-count").innerHTML = rounds;
+      document.querySelector(".round-winner").innerHTML = "";
+      hud.replaceChildren();
+    }, 4000);
   }
 }
 
@@ -127,3 +142,5 @@ function playerChoice(choice) {
     playerFinalChoice.classList.add('fa-hand-rock-o');
   }
 }
+
+
