@@ -50,7 +50,7 @@ let mainEvent = btns.forEach(btn => {
 });
 
 function getComputerChoice() {
-  shuffleCompChoice.classList.add("fa", "fa-3x");
+  shuffleCompChoice.classList.add("fa", "fa-3x", "inverted");
   //Options computer can "pick"
   let options = ["rock", "paper", "scissors"];
   
@@ -73,7 +73,8 @@ function getComputerChoice() {
   return options[randNum];
 }
 
-function playRound(playerSelection, computerSelection) {  
+function playRound(playerSelection, computerSelection) {
+    
   //Main logic to get the message who wins the round
   //and return value to later determine who increments the score
   if (playerSelection === computerSelection) {
