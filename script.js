@@ -117,11 +117,11 @@ function reset() {
     document.getElementById("round").style.setProperty("display", "none");
     document.querySelector(".scoreline").style.setProperty("display", "none");
     if(playerScore > computerScore) {
-      document.querySelector(".round-winner").innerHTML = `After 10 epic rounds, Player wins with a score ${playerScore} to ${computerScore}!`;
+      document.querySelector(".round-winner").innerHTML = `After 10 epic rounds, Player.<br> Score: ${playerScore} to ${computerScore}!`;
     } else if (playerScore < computerScore) {
-      document.querySelector(".round-winner").innerHTML = `After 10 epic rounds, Computer wins with a score  ${computerScore} to ${playerScore}!`
+      document.querySelector(".round-winner").innerHTML = `After 10 epic rounds, Computer.<br> Score: ${computerScore} to ${playerScore}!`
     } else {
-      document.querySelector(".round-winner").innerHTML = `After 10 epic rounds...It's a tie! Score: ${playerScore} to ${computerScore}.`
+      document.querySelector(".round-winner").innerHTML = `After 10 epic rounds...It's a tie!<br> Score: ${playerScore} to ${computerScore}.`
     }
     setTimeout(function() {
       document.getElementById("round").style.setProperty("display", "flex");

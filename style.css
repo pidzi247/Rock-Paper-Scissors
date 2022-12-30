@@ -176,11 +176,21 @@ hr {
     display: none;
   }
 
-span,
-.player-side::after,
-.computer-side::after {
-  display: inherit;
+  span,
+  .player-side::after,
+  .computer-side::after {
+    display: inherit;
+  }
 }
+
+@media (min-width: 1025px) {
+  .game-board {
+    width: 80%
+  }
+
+  #log {
+    visibility: visible;
+  }
 }
 
 @keyframes example {
