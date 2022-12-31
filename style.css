@@ -14,7 +14,6 @@ body {
   width: 100%;
   position: relative;
   height: 100vh;
-  background: rgb(16,74,119);
   background: radial-gradient(circle, rgba(16,74,119,1) 35%, rgba(23,7,134,1) 84%);
 }
 
@@ -23,13 +22,16 @@ body {
 }
 
 #log {
+  font-size: 1.2vw;
   z-index: 1;
   position: absolute;
   right: 0;
   top: 0;
-  width: 40%;
+  width: 20%;
   display: none;
-  text-align: right;
+  text-align: center;
+  visibility: hidden;
+  overflow: hidden;
 }
 
 .computer-side {
@@ -146,10 +148,6 @@ span {
 
 .round-winner {
   text-align: center;
-}
-
-#log {
-  visibility: hidden;
 }
 
 span,

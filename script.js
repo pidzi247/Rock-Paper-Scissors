@@ -4,6 +4,7 @@ const shuffleCompChoice = document.getElementById("pc-choice");
 const playerFinalChoice = document.getElementById("player-choice");
 const hud = document.getElementById("log");
 const choiceActive = document.querySelectorAll(".choice-name");
+const docWidth = document.querySelector("body");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -16,7 +17,10 @@ let computerCurrentChoice = "";
 
 let mainEvent = btns.forEach(btn => {
   btn.addEventListener('click', () => {
-    hud.style.setProperty("display", "block");
+    if(docWidth.offsetWidth > 480) {
+      hud.style.setProperty("display", "block");
+      hud.style.setProperty("visibility", "visible");
+    }
     playerCurrentChoice = btn.textContent;
     playerFinalChoice.textContent = playerChoice(btn.textContent);
     playerFinalChoice.style.color = "#48F03D";
@@ -43,9 +47,12 @@ let mainEvent = btns.forEach(btn => {
         });
       });
     }, 2500)
-    setTimeout(function() {
-      hud.style.setProperty("display", "none");
-    }, 2500)
+    if(docWidth.offsetWidth < 1025 && docWidth.offsetWidth > 480) {
+      setTimeout(function() {
+        hud.style.setProperty("display", "none");
+        hud.style.setProperty("visibility", "hidden");
+      }, 2500)
+    }
   });
 });
 
@@ -106,8 +113,9 @@ function playRound(playerSelection, computerSelection) {
       playerFinalChoice.classList.add("hiA");
     }
   let roundLog = document.createElement("div"); 
-  let logMessage = `player => ${playerCurrentChoice.toUpperCase()} vs ${computerCurrentChoice.toUpperCase()} <= computer || ${playerScore} : ${computerScore}`;  
-  roundLog.textContent = logMessage;
+  let logMessage = `Player => ${playerCurrentChoice} <br>Comp => ${computerCurrentChoice}<br> Score: ${playerScore} : ${computerScore}<br> ${currentLead(computerScore, playerScore)}`;  
+  roundLog.innerHTML = `----------------------<br>&#8595; Round ${rounds} &#8595;<br>
+  ${logMessage}`;
   hud.insertBefore(roundLog, hud.firstChild);
 }
 
@@ -153,3 +161,12 @@ function playerChoice(choice) {
 }
 
 
+function currentLead(score1, score2) {
+  if(score1 > score2) {
+    return "Computer leads!";
+  } else if (score1 < score2) {
+    return "Player leads!";
+  } else {
+    return "It is a tie!";
+  }
+}
