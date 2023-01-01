@@ -13,7 +13,9 @@ let timesRun = 0;
 let playerCurrentChoice = "";
 let computerCurrentChoice = "";
   
-
+hud.addEventListener("click", () => {
+  hud.classList.add("expanded");
+})
 
 let mainEvent = btns.forEach(btn => {
   btn.addEventListener('click', () => {
