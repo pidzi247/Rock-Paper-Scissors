@@ -22,6 +22,7 @@ body {
   height: 100%;
 }
 
+
 #log {
   font-size: 1.2vw;
   position: absolute;
@@ -199,8 +200,21 @@ hr {
     filter: blur(10px);
   }
 
+  .log-prompt {
+    position: absolute;
+    right: 7%;
+    top: 52%;
+    z-index: -1;
+    font-weight: bold;
+    text-align: center;
+  }
+
   .expanded {
     animation: expand 2s forwards;
+  }
+
+  .collapsed {
+    animation: collapse 2s forwards;
   }
 }
 
@@ -213,4 +227,9 @@ hr {
 @keyframes expand {
   0%   { top: 45%; height: 15%; }
   100% { top: 0%;height: 100%; filter: none; }
+}
+
+@keyframes collapse {
+  0%   { top: 0%;height: 100%; filter: blur(0);}
+  100% { top: 45%; height: 15%; filter: blur(10px);}
 }

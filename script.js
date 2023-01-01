@@ -5,6 +5,7 @@ const playerFinalChoice = document.getElementById("player-choice");
 const hud = document.getElementById("log");
 const choiceActive = document.querySelectorAll(".choice-name");
 const docWidth = document.querySelector("body");
+const logPrompt = document.querySelector(".log-prompt");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -14,7 +15,17 @@ let playerCurrentChoice = "";
 let computerCurrentChoice = "";
   
 hud.addEventListener("click", () => {
-  hud.classList.add("expanded");
+  if(hud.classList.contains("expanded")) {
+    logPrompt.innerHTML = "Click to<br> EXPAND";
+    logPrompt.style.setProperty("right", "7%");
+    hud.classList.add("collapsed");
+    hud.classList.remove("expanded");
+  } else {
+    logPrompt.innerHTML = "Click to<br> COLLAPSE";
+    logPrompt.style.setProperty("right", "5%");
+    hud.classList.add("expanded");
+    hud.classList.remove("collapsed");
+  }
 })
 
 let mainEvent = btns.forEach(btn => {
