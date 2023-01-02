@@ -32,7 +32,6 @@ body {
   height: 15%;
   display: none;
   text-align: center;
-  visibility: hidden;
   overflow: hidden;
   margin: auto 0;
 }
@@ -168,7 +167,18 @@ hr {
   opacity: 0.2;
 }
 
-@media (min-width: 480px) {
+@media (max-width: 480px) {
+  .log-prompt {
+    display: none;
+  }
+
+  #log {
+    background-color: black;
+    display: block;
+  }
+}
+
+@media (min-width: 481px) {
   .player-side button:hover {
     transform: scale(1.5);
   }
@@ -203,7 +213,7 @@ hr {
   .log-prompt {
     position: absolute;
     right: 7.5%;
-    top: 51%;
+    top: 49%;
     z-index: -1;
     font-weight: bold;
     text-align: center;

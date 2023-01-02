@@ -16,13 +16,13 @@ let computerCurrentChoice = "";
   
 hud.addEventListener("click", () => {
   if(hud.classList.contains("expanded")) {
-    logPrompt.innerHTML = "Click to<br> EXPAND";
+    logPrompt.innerHTML = "GAME LOG<br><br>Click to<br> EXPAND";
     logPrompt.style.setProperty("right", "7%");
     hud.classList.add("collapsed");
     hud.classList.remove("expanded");
   } else {
-    logPrompt.innerHTML = "Click to<br> COLLAPSE";
-    logPrompt.style.setProperty("right", "5%");
+    logPrompt.innerHTML = "GAME LOG<br><br>Click to<br> COLLAPSE";
+    logPrompt.style.setProperty("right", "6%");
     hud.classList.add("expanded");
     hud.classList.remove("collapsed");
   }
