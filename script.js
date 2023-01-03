@@ -15,16 +15,20 @@ let playerCurrentChoice = "";
 let computerCurrentChoice = "";
   
 hud.addEventListener("click", () => {
-  if(hud.classList.contains("expanded")) {
-    logPrompt.innerHTML = "GAME LOG<br><br>Click to<br> EXPAND";
-    logPrompt.style.setProperty("right", "7%");
-    hud.classList.add("collapsed");
-    hud.classList.remove("expanded");
+  if(docWidth.offsetWidth > 480) {
+    if(hud.classList.contains("expanded")) {
+      logPrompt.innerHTML = "GAME LOG<br><br>Click to<br> EXPAND";
+      logPrompt.style.setProperty("right", "5.5%");
+      hud.classList.add("collapsed");
+      hud.classList.remove("expanded");
+    } else {
+      logPrompt.innerHTML = "GAME LOG<br><br>Click to<br> COLLAPSE";
+      logPrompt.style.setProperty("right", "5.5%");
+      hud.classList.add("expanded");
+      hud.classList.remove("collapsed");
+    }
   } else {
-    logPrompt.innerHTML = "GAME LOG<br><br>Click to<br> COLLAPSE";
-    logPrompt.style.setProperty("right", "6%");
-    hud.classList.add("expanded");
-    hud.classList.remove("collapsed");
+    
   }
 })
 
