@@ -28,7 +28,13 @@ hud.addEventListener("click", () => {
       hud.classList.remove("collapsed");
     }
   } else {
-    
+    if(hud.classList.contains("sidebar-rollout")) {
+      hud.classList.remove("sidebar-rollout");
+      hud.classList.add("sidebar-rollin");
+    } else {
+      hud.classList.remove("sidebar-rollin");
+      hud.classList.add("sidebar-rollout");
+    }
   }
 })
 
