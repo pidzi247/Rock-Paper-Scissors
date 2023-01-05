@@ -1,3 +1,6 @@
+let roundContainer = document.createElement("div");
+roundContainer.setAttribute("id", "round-container");
+
 const btns = document.querySelectorAll(".btn");
 const box = document.querySelector(".para");
 const shuffleCompChoice = document.getElementById("pc-choice");
@@ -6,6 +9,11 @@ const hud = document.getElementById("log");
 const choiceActive = document.querySelectorAll(".choice-name");
 const docWidth = document.querySelector("body");
 const logPrompt = document.querySelector(".log-prompt");
+const round = document.getElementsByClassName("rounds");
+
+hud.appendChild(roundContainer);
+
+const roundsWrapper = document.getElementById("round-container");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -14,7 +22,7 @@ let timesRun = 0;
 let playerCurrentChoice = "";
 let computerCurrentChoice = "";
   
-hud.addEventListener("click", () => {
+let logPanel = hud.addEventListener("click", () => {
   if(docWidth.offsetWidth > 480) {
     if(hud.classList.contains("expanded")) {
       logPrompt.innerHTML = "GAME LOG<br><br>Click to<br> EXPAND";
@@ -31,14 +39,26 @@ hud.addEventListener("click", () => {
     if(hud.classList.contains("sidebar-rollout")) {
       hud.classList.remove("sidebar-rollout");
       hud.classList.add("sidebar-rollin");
+      hud.classList.remove("active");
+      roundsWrapper.classList.remove("focused");
+      for (let i = 0; i < round.length; i++) {
+        round[i].style.visibility = "hidden";
+      }
     } else {
       hud.classList.remove("sidebar-rollin");
       hud.classList.add("sidebar-rollout");
+      hud.classList.add("active");
+      roundsWrapper.classList.add("focused");
+      for (let i = 0; i < round.length; i++) {
+        round[i].style.visibility = "visible";
+      }
     }
   }
-})
+});
 
-let mainEvent = btns.forEach(btn => {
+let logPromptMessage = logPrompt.addEventListener("click", clickablePanel);
+
+let game = btns.forEach(btn => {
   btn.addEventListener('click', () => {
     if(docWidth.offsetWidth > 480) {
       hud.style.setProperty("display", "block");
@@ -75,6 +95,17 @@ let mainEvent = btns.forEach(btn => {
         hud.style.setProperty("display", "none");
         hud.style.setProperty("visibility", "hidden");
       }, 2500)
+    }
+    if(docWidth.offsetWidth < 480) {
+      if(roundsWrapper.classList.contains("focused")) {
+        for (let i = 0; i < round.length; i++) {
+          round[i].style.visibility = "visible";
+        }
+      } else {
+        for (let i = 0; i < round.length; i++) {
+          round[i].style.visibility = "hidden";
+        }
+      }
     }
   });
 });
@@ -136,10 +167,11 @@ function playRound(playerSelection, computerSelection) {
       playerFinalChoice.classList.add("hiA");
     }
   let roundLog = document.createElement("div"); 
+  roundLog.classList.add("rounds");
   let logMessage = `Player => ${playerCurrentChoice} <br>Comp => ${computerCurrentChoice}<br> Score: ${playerScore} : ${computerScore}<br> ${currentLead(computerScore, playerScore)}`;  
   roundLog.innerHTML = `----------------------<br>&#8595; Round ${rounds} &#8595;<br>
   ${logMessage}`;
-  hud.insertBefore(roundLog, hud.firstChild);
+  roundContainer.insertBefore(roundLog, roundContainer.firstChild);
 }
 
 function reset() {
@@ -191,5 +223,21 @@ function currentLead(score1, score2) {
     return "Player leads!";
   } else {
     return "It is a tie!";
+  }
+}
+
+function clickablePanel() {
+  if(docWidth.offsetWidth > 480) {
+    if(hud.classList.contains("expanded")) {
+      logPrompt.innerHTML = "GAME LOG<br><br>Click to<br> EXPAND";
+      logPrompt.style.setProperty("right", "5.5%");
+      hud.classList.add("collapsed");
+      hud.classList.remove("expanded");
+    } else {
+      logPrompt.innerHTML = "GAME LOG<br><br>Click to<br> COLLAPSE";
+      logPrompt.style.setProperty("right", "5.5%");
+      hud.classList.add("expanded");
+      hud.classList.remove("collapsed");
+    }
   }
 }
