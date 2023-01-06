@@ -1,3 +1,4 @@
+/* 1. General styling */
 * {
   color: white;
   margin: 0;
@@ -17,68 +18,19 @@ body {
   background: radial-gradient(circle, rgba(16,74,119,1) 35%, rgba(23,7,134,1) 84%);
 }
 
+hr {
+  width: 100%;
+  opacity: 0.2;
+}
+
+span {
+  display: block;
+}
+
+/* 2. Main game styling */
 .game-board {
   width: 100%;
   height: 100%;
-}
-
-#log {
-  font-size: 1.2vw;
-  position: absolute;
-  right: 0;
-  top: 45%;
-  width: 20%;
-  height: 15%;
-  display: none;
-  text-align: center;
-  overflow: hidden;
-  margin: auto 0;
-}
-
-.computer-side {
-  border-bottom: 5px rgba(128,128,128,0.5) solid;
-}
-
-.result-side {
-  height: 60%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.player-side {
-  border-top: 5px rgba(128,128,128,0.5) solid;
-  color: #48F03D;
-}
-
-.player-side button {
-  color: #48F03D;
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-}
-
-.player-side span {
-  color: #48F03D;
-}
-
-.player-side::after {
-  content: "PLAYER";
-  position: absolute;
-  font-weight: 900 ;
-  bottom: 20%;
-}
-
-.computer-side::after {
-  content: "COMPUTER";
-  position: absolute;
-  font-weight: 900 ;
-  top: 22%;
-  -moz-transform: scale(-1, 1);
-  -webkit-transform: scale(-1, 1);
-  -o-transform: scale(-1, 1);
-  -ms-transform: scale(-1, 1);
-  transform: scale(-1, -1);
 }
 
 .computer-side,
@@ -90,7 +42,24 @@ body {
   border-radius: 50%;
 }
 
-.inverted {
+/* 2.1 Styles computer side of game board */
+.computer-side {
+  border-bottom: 5px rgba(128,128,128,0.5) solid;
+}
+
+.computer-side::after {
+  content: "COMPUTER";
+  position: absolute;
+  font-weight: 900 ;
+  top: 22%;
+  -moz-transform: scale(-1, 1); 
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, -1);
+}
+
+.computer-side .fa { /* turns icons upside down */
   -moz-transform: scale(-1, 1);
   -webkit-transform: scale(-1, 1);
   -o-transform: scale(-1, 1);
@@ -98,21 +67,13 @@ body {
   transform: scale(-1, -1);
 }
 
-.fa {
-  background: none;
-  border: none;
-}
-
-span {
-  display: block;
-}
-
-.computer-side .fa {
-  -moz-transform: scale(-1, 1);
-  -webkit-transform: scale(-1, 1);
-  -o-transform: scale(-1, 1);
-  -ms-transform: scale(-1, 1);
-  transform: scale(-1, -1);
+/* 2.2 Styles middle part of board */
+.result-side {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 #scoreboard {
@@ -151,21 +112,69 @@ span {
   text-align: center;
 }
 
+/* 2.3 Styles computer side of game board */
+.player-side {
+  border-top: 5px rgba(128,128,128,0.5) solid;
+  color: #48F03D;
+}
+
+.player-side::after {
+  content: "PLAYER";
+  position: absolute;
+  font-weight: 900 ;
+  bottom: 20%;
+}
+
+.player-side .fa {
+  background: none;
+  border: none;
+}
+
+.player-side button {
+  color: #48F03D;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.player-side span {
+  color: #48F03D;
+}
+
+.popup {
+  animation: enlarge 1.5s;
+}
+
+.inverted {
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, -1);
+}
+
 span,
 .player-side::after,
 .computer-side::after {
   display: none;
 }
 
-.hiA{
-  animation: enlarge 1.5s;
-}
-  
-hr {
-  width: 100%;
-  opacity: 0.2;
+/* 3. Log panel styling */
+#log {
+  font-size: 1.2vw;
+  position: absolute;
+  right: 0;
+  top: 45%;
+  width: 20%;
+  height: 15%;
+  display: none;
+  text-align: center;
+  overflow: hidden;
+  margin: auto 0;
 }
 
+/* 4. Handles responsive design for various screen sizes */
+
+/* 4.1 Mobile screens */
 @media (max-width: 480px) {
   .log-prompt {
     display: none;
@@ -228,6 +237,7 @@ hr {
 
 }
 
+/* 4.2 Tablets/Laptops screen size */
 @media (min-width: 481px) {
   .player-side button:hover {
     transform: scale(1.5);
@@ -244,6 +254,7 @@ hr {
   }
 }
 
+/* 4.3 Desktop screens */
 @media (min-width: 1025px) {
   .game-board {
     width: 80%
@@ -277,12 +288,15 @@ hr {
   }
 }
 
-@keyframes enlarge {
+
+/* 5. Animations */
+@keyframes enlarge { /* Makes player icons bigger on hover */
   0%   { transform:scale(1); }
   50%  { transform:scale(1.7) }
   100% { transform:scale(1); }
 }
 
+/* 5.1 Expands and collapses log panel on biggest screens on click */
 @keyframes expand {
   0%   { top: 45%; height: 15%; }
   100% { top: 0%;height: 100%; filter: none; }
@@ -293,6 +307,7 @@ hr {
   100% { top: 45%; height: 15%; filter: blur(10px);}
 }
 
+/* 5.2 Makes log panel to show and hide on click on mobile devices */
 @keyframes rollout {
   0% {width: 10%; background-color: rgba(23,7,134,0)}
   100% {width: 100%; background-color: rgba(23,7,134,1)}
