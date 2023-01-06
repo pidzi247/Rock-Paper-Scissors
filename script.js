@@ -21,20 +21,11 @@ let rounds = 0;
 let timesRun = 0;
 let playerCurrentChoice = "";
 let computerCurrentChoice = "";
-  
+
+let logPromptMessage = logPrompt.addEventListener("click", clickablePanel);
 let logPanel = hud.addEventListener("click", () => {
   if(docWidth.offsetWidth > 480) {
-    if(hud.classList.contains("expanded")) {
-      logPrompt.innerHTML = "GAME LOG<br><br>Click to<br> EXPAND";
-      logPrompt.style.setProperty("right", "5.5%");
-      hud.classList.add("collapsed");
-      hud.classList.remove("expanded");
-    } else {
-      logPrompt.innerHTML = "GAME LOG<br><br>Click to<br> COLLAPSE";
-      logPrompt.style.setProperty("right", "5.5%");
-      hud.classList.add("expanded");
-      hud.classList.remove("collapsed");
-    }
+    clickablePanel();
   } else {
     if(hud.classList.contains("sidebar-rollout")) {
       hud.classList.remove("sidebar-rollout");
@@ -56,7 +47,6 @@ let logPanel = hud.addEventListener("click", () => {
   }
 });
 
-let logPromptMessage = logPrompt.addEventListener("click", clickablePanel);
 
 let game = btns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -94,7 +84,7 @@ let game = btns.forEach(btn => {
       setTimeout(function() {
         hud.style.setProperty("display", "none");
         hud.style.setProperty("visibility", "hidden");
-      }, 2500)
+      }, 3500)
     }
     if(docWidth.offsetWidth < 480) {
       if(roundsWrapper.classList.contains("focused")) {
@@ -227,7 +217,7 @@ function currentLead(score1, score2) {
 }
 
 function clickablePanel() {
-  if(docWidth.offsetWidth > 480) {
+  if(docWidth.offsetWidth > 769) {
     if(hud.classList.contains("expanded")) {
       logPrompt.innerHTML = "GAME LOG<br><br>Click to<br> EXPAND";
       logPrompt.style.setProperty("right", "5.5%");
