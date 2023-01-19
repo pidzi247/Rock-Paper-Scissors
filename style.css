@@ -28,13 +28,13 @@ span {
 }
 
 /* 2. Main game styling */
-.game-board {
+.gameBoard {
   width: 100%;
   height: 100%;
 }
 
-.computer-side,
-.player-side {
+.computerSide,
+.playerSide {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -43,11 +43,11 @@ span {
 }
 
 /* 2.1 Styles computer side of game board */
-.computer-side {
+.computerSide {
   border-bottom: 5px rgba(128,128,128,0.5) solid;
 }
 
-.computer-side::after {
+.computerSide::after {
   content: "COMPUTER";
   position: absolute;
   font-weight: 900 ;
@@ -59,7 +59,7 @@ span {
   transform: scale(-1, -1);
 }
 
-.computer-side .fa { 
+.computerSide .fa { 
   text-align: center;
   background-color: rgba(128,128,128,0);
   -moz-transform: scale(-1, 1);
@@ -70,7 +70,7 @@ span {
 }
 
 /* 2.2 Styles middle part of board */
-.result-side {
+.resultSide {
   height: 60%;
   display: flex;
   flex-direction: column;
@@ -110,35 +110,35 @@ span {
   font-size: 1.5rem;
 }
 
-.round-winner {
+.roundWinner {
   text-align: center;
 }
 
 /* 2.3 Styles computer side of game board */
-.player-side {
+.playerSide {
   border-top: 5px rgba(128,128,128,0.5) solid;
   color: #48F03D;
 }
 
-.player-side::after {
+.playerSide::after {
   content: "PLAYER";
   position: absolute;
   font-weight: 900 ;
   bottom: 20%;
 }
 
-.player-side .fa {
+.playerSide .fa {
   background: none;
   border: none;
 }
 
-.player-side button {
+.playerSide button {
   color: #48F03D;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
 
-.player-side span {
+.playerSide span {
   color: #48F03D;
 }
 
@@ -155,8 +155,8 @@ span {
 }
 
 span,
-.player-side::after,
-.computer-side::after {
+.playerSide::after,
+.computerSide::after {
   display: none;
 }
 
@@ -178,7 +178,7 @@ span,
 
 /* 4.1 Mobile screens */
 @media (max-width: 480px) {
-  .log-prompt {
+  .logPrompt {
     display: none;
   }
 
@@ -212,19 +212,19 @@ span,
     content: none;
   }
 
-  .sidebar-rollout {
+  .sidebarRollout {
     animation: rollout 1s forwards;
   }
 
-  .sidebar-rollin {
+  .sidebarRollin {
     animation: rollin 1s forwards;
   }
 
-  .round-container.rounds:hover {
+  .roundContainer.rounds:hover {
     transform: scale(1.5);
   }
 
-  #round-container {
+  #roundContainer {
     width: 100%;
     height: 100%;
     display: flex;
@@ -241,7 +241,7 @@ span,
 
 /* 4.2 Tablets/Laptops screen size */
 @media (min-width: 481px) {
-  .player-side button:hover {
+  .playerSide button:hover {
     transform: scale(1.5);
   }
 
@@ -250,15 +250,15 @@ span,
   }
 
   span,
-  .player-side::after,
-  .computer-side::after {
+  .playerSide::after,
+  .computerSide::after {
     display: inherit;
   }
 }
 
 /* 4.3 Desktop screens */
 @media (min-width: 1025px) {
-  .game-board {
+  .gameBoard {
     width: 80%
   }
 
@@ -273,7 +273,7 @@ span,
     filter: blur(10px);
   }
 
-  .log-prompt {
+  .logPrompt {
     position: absolute;
     right: 6%;
     top: 49%;

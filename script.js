@@ -1,20 +1,20 @@
 let roundContainer = document.createElement("div");
-roundContainer.setAttribute("id", "round-container");
+roundContainer.setAttribute("id", "roundContainer");
 
 // DOM handling
 const btns = document.querySelectorAll(".btn");
 const box = document.querySelector(".para");
-const shuffleCompChoice = document.getElementById("pc-choice");
-const playerFinalChoice = document.getElementById("player-choice");
+const shuffleCompChoice = document.getElementById("cpuChoice");
+const playerFinalChoice = document.getElementById("playerChoice");
 const hud = document.getElementById("log");
-const choiceActive = document.querySelectorAll(".choice-name");
+const choiceActive = document.querySelectorAll(".choiceName");
 const docWidth = document.querySelector("body");
-const logPrompt = document.querySelector(".log-prompt");
+const logPrompt = document.querySelector(".logPrompt");
 const round = document.getElementsByClassName("rounds");
 
 hud.appendChild(roundContainer);
 
-const roundsWrapper = document.getElementById("round-container");
+const roundsWrapper = document.getElementById("roundContainer");
 
 // Global variables
 let playerScore = 0;
@@ -30,17 +30,17 @@ let logPanel = hud.addEventListener("click", () => {
   if(docWidth.offsetWidth > 480) {
     clickablePanel();
   } else {
-    if(hud.classList.contains("sidebar-rollout")) {
-      hud.classList.remove("sidebar-rollout");
-      hud.classList.add("sidebar-rollin");
+    if(hud.classList.contains("sidebarRollout")) {
+      hud.classList.remove("sidebarRollout");
+      hud.classList.add("sidebarRollin");
       hud.classList.remove("active");
       roundsWrapper.classList.remove("focused");
       for (let i = 0; i < round.length; i++) {
         round[i].style.visibility = "hidden";
       }
     } else {
-      hud.classList.remove("sidebar-rollin");
-      hud.classList.add("sidebar-rollout");
+      hud.classList.remove("sidebarRollin");
+      hud.classList.add("sidebarRollout");
       hud.classList.add("active");
       roundsWrapper.classList.add("focused");
       for (let i = 0; i < round.length; i++) {
@@ -127,10 +127,10 @@ function playRound(playerSelection, computerSelection) {
     
   if (playerSelection === computerSelection) {
     rounds++;
-    document.getElementById("round-count").innerHTML = rounds;
-    document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
-    document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
-    document.querySelector(".round-winner").innerHTML = "It's a tie!";
+    document.getElementById("roundCount").innerHTML = rounds;
+    document.getElementById("scorePlayer").innerHTML = "Player:  " + playerScore;
+    document.getElementById("scoreCpu").innerHTML = "Computer:  " + computerScore;
+    document.querySelector(".roundWinner").innerHTML = "It's a tie!";
     playerFinalChoice.classList.add("popup");
     shuffleCompChoice.classList.add('popup');
   } else if (
@@ -139,18 +139,18 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === 'scissors' && computerSelection === 'rock') ) {
       rounds++;
       computerScore++;
-      document.getElementById("round-count").innerHTML = rounds;
-      document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
-      document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
-      document.querySelector(".round-winner").innerHTML = "Computer" + "<br>" + "wins!";
+      document.getElementById("roundCount").innerHTML = rounds;
+      document.getElementById("scorePlayer").innerHTML = "Player:  " + playerScore;
+      document.getElementById("scoreCpu").innerHTML = "Computer:  " + computerScore;
+      document.querySelector(".roundWinner").innerHTML = "Computer" + "<br>" + "wins!";
       shuffleCompChoice.classList.add('popup');
   } else {
       rounds++;
       playerScore++;
-      document.getElementById("round-count").innerHTML = rounds;
-      document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
-      document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
-      document.querySelector(".round-winner").innerHTML = "Player" + "<br>" + "wins!";
+      document.getElementById("roundCount").innerHTML = rounds;
+      document.getElementById("scorePlayer").innerHTML = "Player:  " + playerScore;
+      document.getElementById("scoreCpu").innerHTML = "Computer:  " + computerScore;
+      document.querySelector(".roundWinner").innerHTML = "Player" + "<br>" + "wins!";
       playerFinalChoice.classList.add("popup");
     }
   let roundLog = document.createElement("div"); 
@@ -166,11 +166,11 @@ function reset() {
     document.getElementById("round").style.setProperty("display", "none");
     document.querySelector(".scoreline").style.setProperty("display", "none");
     if(playerScore > computerScore) {
-      document.querySelector(".round-winner").innerHTML = `After 10 epic rounds, Player.<br> Score: ${playerScore} to ${computerScore}!`;
+      document.querySelector(".roundWinner").innerHTML = `After 10 epic rounds, Player.<br> Score: ${playerScore} to ${computerScore}!`;
     } else if (playerScore < computerScore) {
-      document.querySelector(".round-winner").innerHTML = `After 10 epic rounds, Computer.<br> Score: ${computerScore} to ${playerScore}!`
+      document.querySelector(".roundWinner").innerHTML = `After 10 epic rounds, Computer.<br> Score: ${computerScore} to ${playerScore}!`
     } else {
-      document.querySelector(".round-winner").innerHTML = `After 10 epic rounds...It's a tie!<br> Score: ${playerScore} to ${computerScore}.`
+      document.querySelector(".roundWinner").innerHTML = `After 10 epic rounds...It's a tie!<br> Score: ${playerScore} to ${computerScore}.`
     }
     setTimeout(function() {
       document.getElementById("round").style.setProperty("display", "flex");
@@ -178,10 +178,10 @@ function reset() {
       rounds = 0;
       playerScore = 0;
       computerScore = 0;
-      document.getElementById("score-player").innerHTML = "Player:  " + playerScore;
-      document.getElementById("score-pc").innerHTML = "Computer:  " + computerScore;
-      document.getElementById("round-count").innerHTML = rounds;
-      document.querySelector(".round-winner").innerHTML = "";
+      document.getElementById("scorePlayer").innerHTML = "Player:  " + playerScore;
+      document.getElementById("scoreCpu").innerHTML = "Computer:  " + computerScore;
+      document.getElementById("roundCount").innerHTML = rounds;
+      document.querySelector(".roundWinner").innerHTML = "";
       hud.replaceChildren();
     }, 4000);
   }

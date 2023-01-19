@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
-  <script src="script.js" defer></script>
-  <title>Rock-Paper-Scissors</title>
-</head>
-<body>
-  <div class="game-board">
-    <div class="computer-side">
-      <div class="fa fa-hand-paper-o fa-2x" aria-hidden="true"><span>paper</span></div>
-      <div class="fa fa-hand-rock-o fa-2x" aria-hidden="true"><span>rock</span></div>
-      <div class="fa fa-hand-scissors-o fa-2x" aria-hidden="true"><span>scissors</span></div>
-    </div>
-    <div class="result-side">
-      <p id="pc-choice" class="inverted"></p>
-      <hr>
-      <div id="scoreboard">
-        <div id="round">
-          <div>Round</div>
-          <p id="round-count">0</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="./font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    <script src="script.js" defer></script>
+    <title>Rock-Paper-Scissors</title>
+  </head>
+  <body>
+    <div class="gameBoard">
+      <div class="computerSide">
+        <div class="fa fa-hand-paper-o fa-2x" aria-hidden="true">
+          <span>paper</span>
         </div>
-        <h3 class="round-winner"></h3>
-        <div class="scoreline">
-          <div>Score</div>
-          <p id="score-pc">Computer: 0</p>
-          <p id="score-player">Player: 0</p>
+        <div class="fa fa-hand-rock-o fa-2x" aria-hidden="true">
+          <span>rock</span>
+        </div>
+        <div class="fa fa-hand-scissors-o fa-2x" aria-hidden="true">
+          <span>scissors</span>
         </div>
       </div>
-      <hr>
-      <p id="player-choice"></p>
+      <div class="resultSide">
+        <p id="cpuChoice" class="inverted"></p>
+        <hr />
+        <div id="scoreboard">
+          <div id="round">
+            <div>Round</div>
+            <p id="roundCount">0</p>
+          </div>
+          <h3 class="roundWinner"></h3>
+          <div class="scoreline">
+            <div>Score</div>
+            <p id="scoreCpu">Computer: 0</p>
+            <p id="scorePlayer">Player: 0</p>
+          </div>
+        </div>
+        <hr />
+        <p id="playerChoice"></p>
+      </div>
+      <div class="playerSide">
+        <button class="fa fa-hand-paper-o fa-2x btn" aria-hidden="true">
+          <span class="choiceName">paper</span>
+        </button>
+        <button class="fa fa-hand-rock-o fa-2x btn" aria-hidden="true">
+          <span class="choiceName">rock</span>
+        </button>
+        <button class="fa fa-hand-scissors-o fa-2x btn" aria-hidden="true">
+          <span class="choiceName">scissors</span>
+        </button>
+      </div>
     </div>
-    <div class="player-side">
-      <button class="fa fa-hand-paper-o fa-2x btn" aria-hidden="true"><span class="choice-name">paper</span></button>
-      <button class="fa fa-hand-rock-o fa-2x btn" aria-hidden="true"><span class="choice-name">rock</span></button>
-      <button class="fa fa-hand-scissors-o fa-2x btn" aria-hidden="true"><span class="choice-name">scissors</span></button>
-    </div>
-  </div>
-  <div id="log">
-    
-  </div>
-  <p class="log-prompt">GAME LOG<br><br>Click to <br>EXPAND</p>
-</body>
+    <div id="log"></div>
+    <p class="logPrompt">GAME LOG<br /><br />Click to <br />EXPAND</p>
+  </body>
 </html>
